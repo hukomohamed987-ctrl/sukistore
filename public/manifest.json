@@ -1,0 +1,68 @@
+{
+  "name": "سوقي ستور (Suki Store)",
+  "short_name": "سوقي ستور",
+  "description": "سوقك العربي المتكامل - تسوق إلكتروني آمن، شحن فائق السرعة، وأقوى العروض الحصرية",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0f172a",
+  "theme_color": "#059669",
+  "dir": "rtl",
+  "lang": "ar",
+  "categories": [
+    "shopping",
+    "lifestyle",
+    "business"
+  ],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "سلة المشتريات",
+      "short_name": "السلة",
+      "description": "عرض سلة مشترياتك وإتمام الطلب",
+      "url": "/#/cart",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "قائمة المفضلة",
+      "short_name": "المفضلة",
+      "description": "عرض قائمة أمنياتك المحفوظة",
+      "url": "/#/wishlist",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "تتبع طلباتي",
+      "short_name": "طلباتي",
+      "description": "متابعة حالة شحناتك وطلباتك",
+      "url": "/#/orders",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false
+}

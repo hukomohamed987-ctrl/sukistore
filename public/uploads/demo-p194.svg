@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d9488"/><stop offset="1" stop-color="#042f2e"/></linearGradient>
+<radialGradient id="l" cx="0.5" cy="0.45" r="0.5"><stop offset="0" stop-color="#fff" stop-opacity="0.55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+<rect width="800" height="800" fill="url(#g)"/>
+<circle cx="649.8755144032922" cy="131.50548696844993" r="89.50788751714677" fill="#fff" opacity="0.10"/>
+<circle cx="448.10185185185185" cy="702.4683641975308" r="80.25308641975309" fill="#fff" opacity="0.08"/>
+<circle cx="400" cy="380" r="260" fill="url(#l)"/>
+<ellipse cx="400" cy="640" rx="190" ry="26" fill="#000" opacity="0.12"/>
+<text x="400" y="470" font-size="300" text-anchor="middle" font-family="Segoe UI Emoji, Apple Color Emoji, Noto Color Emoji, sans-serif">🍲</text>
+</svg>

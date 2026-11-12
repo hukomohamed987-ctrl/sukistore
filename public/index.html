@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <base href="/">
+  <title>سوقي ستور (Suki Store) | سوقك العربي المتكامل</title>
+  <meta name="description" content="سوقي ستور - متجرك العربي المفضل للتسوق الإلكتروني. إلكترونيات، جوالات، أزياء، سوبرماركت، مستلزمات المنزل والمزيد بأفضل الأسعار وأسرع شحن.">
+  
+  <!-- PWA Manifest & App Metadata -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#059669">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="سوقي ستور">
+  <meta name="application-name" content="سوقي ستور">
+  
+  <!-- Icons & Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  
+  <!-- Google Fonts: Cairo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6 (for rich icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Leaflet CSS for Real Interactive Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+  <!-- Google Identity Services (GSI) for seamless Google Sign-In -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <!-- Tailwind CSS: pre-built file (built automatically by the server, see utils/assets.js) -->
+  <link rel="stylesheet" href="/css/tailwind.css">
+  <!--TAILWIND_FALLBACK-->
+
+  <!-- Main Stylesheets (versions "?v=..." are added automatically by the server) -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body class="bg-surface text-slate-800 antialiased">
+
+  <!-- PWA & App Launch Splash Screen (شاشة الافتتاح لتطبيق سوقي ستور) -->
+  <div id="app-splash-screen" class="splash-screen">
+    <div class="splash-container">
+      <div class="splash-logo-box">
+        <img src="/icons/icon-512.png" alt="شعار سوقي ستور" class="splash-logo" />
+        <div class="splash-logo-pulse"></div>
+      </div>
+      <h1 class="splash-brand-title">سوقي ستور</h1>
+      <p class="splash-brand-subtitle">سوقك العربي الأول في مكان واحد</p>
+      
+      <!-- Animated Smooth Progress Bar -->
+      <div class="splash-loading-indicator">
+        <div class="splash-loading-bar"></div>
+      </div>
+
+      <button type="button" onclick="PWA.dismissSplashScreen()" class="splash-skip-btn">
+        <span>تخطي والبدء</span>
+        <i class="fa-solid fa-angles-left text-xs"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Main App Shell -->
+  <div id="app" class="flex flex-col min-h-screen">
+    <!-- PWA Smart Top Banner (شريط ذكي علوي - انسيابي بدون أي حجب للمحتوى) -->
+    <div id="pwa-mobile-install-banner" class="hidden pwa-smart-top-banner">
+      <div class="container mx-auto px-3 py-2 flex items-center justify-between gap-2.5">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <button type="button" onclick="PWA.dismissMobileBanner()" class="pwa-banner-close-btn" title="إغلاق الشريط">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <img src="/icons/icon-192.png" class="w-9 h-9 rounded-xl shadow-sm object-contain border border-emerald-500/30 flex-shrink-0" alt="سوقي ستور" />
+          <div class="min-w-0">
+            <div class="font-extrabold text-xs text-slate-900 dark:text-white truncate">تطبيق سوقي ستور</div>
+            <div class="text-[10px] text-emerald-700 dark:text-emerald-400 font-semibold truncate">تسوق أسرع وإشعارات وتخفيضات فورية</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-1.5 flex-shrink-0">
+          <button type="button" onclick="PWA.install()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs px-3.5 py-1.5 rounded-full shadow-sm flex items-center gap-1 transition">
+            <i class="fa-solid fa-download text-[10px]"></i>
+            <span>تثبيت</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navbar dynamically injected here -->
+    <header id="site-header"></header>
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="flex-grow"></main>
+
+    <!-- Footer dynamically injected here -->
+    <footer id="site-footer"></footer>
+  </div>
+
+  <!-- Mobile Bottom Navigation Bar -->
+  <nav id="mobile-bottom-nav" class="mobile-bottom-nav"></nav>
+
+  <!-- Side Cart Drawer -->
+  <div id="cart-drawer-overlay" class="drawer-overlay hidden"></div>
+  <aside id="cart-drawer" class="cart-drawer"></aside>
+
+  <!-- Global Modal Container -->
+  <div id="modal-container" class="modal-overlay hidden">
+    <div id="modal-dialog" class="modal-dialog">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h3 id="modal-title" class="text-xl font-bold"></h3>
+        <button id="modal-close-btn" class="modal-close">&times;</button>
+      </div>
+      <!-- Modal Body -->
+      <div id="modal-body" class="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Global Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Leaflet JS for Real Interactive Map -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  
+  <!-- Scripts -->
+  <script src="/js/i18n.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/state.js"></script>
+  
+  <!-- UI Components -->
+  <script src="/js/components/pwaManager.js"></script>
+  <script src="/js/components/themeToggle.js"></script>
+  <script src="/js/components/navbar.js"></script>
+  <script src="/js/components/footer.js"></script>
+  <script src="/js/components/cartDrawer.js"></script>
+  <script src="/js/components/mapPicker.js"></script>
+  <script src="/js/components/chatbot.js"></script>
+  <script src="/js/components/pushManager.js"></script>
+  <script src="/js/components/smartRecommendations.js"></script>
+  <script src="/js/components/exportKit.js"></script>
+  <script src="/js/components/showcases.js"></script>
+  
+  <!-- Customer Pages -->
+  <script src="/js/pages/home.js"></script>
+  <script src="/js/pages/category.js"></script>
+  <script src="/js/pages/product.js"></script>
+  <script src="/js/pages/cartPage.js"></script>
+  <script src="/js/pages/checkout.js"></script>
+  <script src="/js/pages/wishlist.js"></script>
+  <script src="/js/pages/profile.js"></script>
+  <script src="/js/pages/orders.js"></script>
+  <script src="/js/pages/orderDetail.js"></script>
+  <script src="/js/pages/returnsPage.js"></script>
+  <script src="/js/pages/authModal.js"></script>
+  <script src="/js/pages/support.js"></script>
+  <script src="/js/pages/staticPages.js"></script>
+  <script src="/js/pages/showcasePage.js"></script>
+
+  <!-- Dashboard code: loaded ONLY when someone opens the dashboard (#/admin), not for shoppers -->
+  <script>
+    window.ADMIN_SCRIPTS = [
+      "/js/components/imagePicker.js",
+      "/js/admin/adminLayout.js",
+      "/js/admin/dashboard.js",
+      "/js/admin/productsAdmin.js",
+      "/js/admin/categoriesAdmin.js",
+      "/js/admin/ordersAdmin.js",
+      "/js/admin/returnsAdmin.js",
+      "/js/admin/customersAdmin.js",
+      "/js/admin/staffAdmin.js",
+      "/js/admin/activityAdmin.js",
+      "/js/admin/reportsAdmin.js",
+      "/js/admin/pushAdmin.js",
+      "/js/admin/liveChatAdmin.js",
+      "/js/admin/couponsAdmin.js",
+      "/js/admin/bannersAdmin.js",
+      "/js/admin/showcasesAdmin.js",
+      "/js/admin/supportAdmin.js",
+      "/js/admin/bulkUploadAdmin.js",
+      "/js/admin/merchantsAdmin.js",
+      "/js/admin/merchantAccountingAdmin.js",
+      "/js/admin/investorsAdmin.js",
+      "/js/admin/accountingAdmin.js",
+      "/js/admin/securityAdmin.js",
+      "/js/admin/settingsAdmin.js",
+      "/js/admin/reviewsAdmin.js",
+      "/js/admin/employeesAdmin.js",
+      "/js/admin/ledgerAdmin.js"
+    ];
+  </script>
+
+  <!-- Router and Main App Init -->
+  <script src="/js/app.js"></script>
+</body>
+</html>

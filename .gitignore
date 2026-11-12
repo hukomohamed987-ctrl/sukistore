@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment variables & Secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.cert
+
+# Logs & Temporary Files
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+database/data/*.tmp
+database/data/*.temp
+
+# OS & Editor Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Demo deployment safety
+.env
+.env.*
+!.env.example
+node_modules/
+backups/
+database/data/*.sqlite
+database/data/*.db
+database/data/*.json

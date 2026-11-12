@@ -1,0 +1,4 @@
+/* Source for the built Tailwind file (public/css/tailwind.css). Do not link this file directly. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
